@@ -30,11 +30,12 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
+
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
 				    <img class="profile-image mb-3 rounded-circle mx-auto" src="{{ url('assets/images/Laravel.png') }}" alt="image" >
 
-					<div class="bio mb-3">Hi, my name is Brian Colcol. I am the one who simply codes this very basic project<br><a href="https://github.com/briantc05/">MY GITHUB</a></div><!--//bio-->
+					<div class="bio mb-3">Hi User <br><a href="https://github.com/briantc05/">MY GITHUB</a></div><!--//bio-->
 
 			        </ul><!--//social-list-->
 			        <hr>

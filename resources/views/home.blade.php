@@ -8,7 +8,9 @@
 <body>
 
     @auth
-        <p>Congrats, you are logged in. </p>
+
+
+        <p>Welcome, User! </p>
         <form action="/logout" method="POST">
         @csrf
         <button>Log Out</button>
@@ -23,6 +25,8 @@
                 <textarea name="blogcontent" placeholder="Place your blog content..."></textarea>
                 <button>Create Blog</button>
 
+
+
             </form>
         </div>
         <div style="border: 3px solid black;">
@@ -31,7 +35,7 @@
             <div style="background-color: gray; padding: 10px; margin: 10px;"></div>
             <h3>{{ $blog['blog_title'] }} by {{$blog->user->name}} </h3>
             <h5> Created at {{ date('jS M Y', strtotime($blog->created_at)) }} </h5>
-            {{ $blog['blog_content']}}
+            <p>{{ $blog['blog_content']}}</p>
             <p><a href="/blogs/edit/{{ $blog->id}}">Edit</a></p>
             <form action="/blogs/delete/{{ $blog->id}}" method="POST">
                 @csrf

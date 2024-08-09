@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 
-Route::get('/', [BlogController::class, 'showAllBlogs'])->name('welcome');
-Route::get('/blogs', function () {
+Route::get('/', function() {
+    return view('welcome');
+});
+
+Route::get('/', function () {
     $blogs = [];
     if (auth()->check())    {
         $blogs = auth()->user()->usersBlogs()->latest()->get();
@@ -18,10 +21,6 @@ Route::get('/blogs', function () {
 
 });
 
-Route::get('/register', [UserController::class, 'goRegister']);
-Route::get('/logout', [UserController::class, 'goLogout']);
-Route::get('/login', [UserController::class, 'gologin']);
-
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/login', [UserController::class, 'login']);
@@ -31,6 +30,3 @@ Route::post('blogs/create', [BlogController::class, 'createBlog']);
 Route::get('blogs/edit/{blog}', [BlogController::class, 'editBlog']);
 Route::put('blogs/edit/{blog}', [BlogController::class, 'updateBlog']);
 Route::delete('blogs/delete/{blog}', [BlogController::class, 'deleteBlog']);
-
-// Generate Random Avatars
-Route::get('/user/{name}/avatar', 'UserController@createAvatar');

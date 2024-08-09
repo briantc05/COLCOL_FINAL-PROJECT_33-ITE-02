@@ -48,4 +48,6 @@ class User extends Authenticatable
     public function usersBlogs() {
         return $this->hasMany(Blog::class, 'user_id');
     }
+
+
 }
